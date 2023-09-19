@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(204, 201, 187);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+input[type="text"],
+textarea {
+	font-size: 15px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1.5px solid black;
+    border-radius: 4px;
+    resize: none;
+}
+
+textarea {
+    height: 140px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-group.checkbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group.checkbox label {
+   margin: 10px;
+}
+
+input[type="checkbox"] {
+	width: 25px;
+	height: 25px;
+}
+ 
+.submit {
+    padding: 8px 15px;
+    font-size: 15px;
+    background-color: green;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.submit:hover {
+    background-color: rgb(1, 60, 1);
+    font-weight: bold;
+}
+
+.cancel {
+	padding: 8px 15px;
+    font-size: 15px;
+    background-color: rgb(175, 31, 31);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.cancel:hover {
+	background-color: #5d0101;
+   font-weight: bold;
+}

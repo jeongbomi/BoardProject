@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.board">
+	
+	<!-- 게시판 Top5 -->
+	<select id="boardTop5" resultType="Board">
+		<![CDATA[
+			select 
+				rownum, sub.*  
+			from (
+				select 
+					* 
+				from board 
+				order by board.boardId desc
+			) sub 
+			where rownum <=5
+		]]>
+	</select>
+	
+	<!-- 게시판 리스트 -->
+	<select id="getBoardList" resultType="Board">
+		SELECT O.* FROM (
+	            SELECT
+	                ROWNUM AS nrow, b.*
+	            FROM (
+	                SELECT
+	                    a.*
+	                FROM board a
+	                <where>
+                    <if test="searchTitle != null and !searchTitle.isEmpty()">
+                    	AND title LIKE '%' || #{searchTitle} || '%'
+                    </if>
+                    </where>
+	                ORDER BY boardId desc
+	            ) b
+	            WHERE ROWNUM &lt;= #{endNo}
+	        ) O
+	        WHERE nrow BETWEEN #{startNo} AND #{endNo}
+	</select>
+	
+	<!-- 게시판 건수  -->
+	<select id="getTotalCount" resultType="int">
+		SELECT COUNT(*) FROM board
+	</select>
+	
+	<!-- 게시판 글쓰기 -->
+	<insert id="insertBoard">
+		INSERT INTO board (
+	        boardId, 
+	        title, 
+	        contents, 
+	        writer_uid, 
+	        reg_date
+	    ) VALUES (
+	        seq_board.nextval, 
+	        #{title}, 
+	        #{contents}, 
+	        #{writer_uid}, 
+	        sysdate
+	    )
+	</insert>
+	
+	<!-- 게시판 상세보기 -->
+	<select id="getBoardDetail" resultType="Board">
+		SELECT
+			boardId,
+			title,
+			contents,
+			writer_uid,
+			reg_date,
+			mod_date,
+			view_count
+		FROM board
+		WHERE boardId = #{boardId}
+	</select>
+	
+	<!-- 게시판 조회수올리기 -->
+	<update id="viewCount">
+		UPDATE board
+		SET view_count = view_count + 1 
+		WHERE boardId = #{boardId}
+	</update>
+	
+	<!-- 게시판 수정 -->
+	<update id="updateBoard">
+		UPDATE board 
+		SET title = #{title}, 
+			contents = #{contents}, 
+			mod_date = sysdate
+		WHERE boardId = #{boardId}
+	</update>
+
+	<!-- 게시판 삭제 -->
+	<delete id="deleteBoard">
+		DELETE
+		FROM board
+		WHERE boardId = #{boardId}
+	</delete>
+	
+	<!-- 게시판 체크선택 삭제 -->
+	<delete id="deleteBoards" parameterType="list">
+	    DELETE FROM board
+	    WHERE boardId IN
+	    <foreach item="ids" collection="array" open="(" separator="," close=")">
+	        #{ids}
+	    </foreach>
+	</delete>
+	
+	<!-- 게시판 체크선택 삭제 후 리스트 불러오기 -->
+	<select id="getBoardListBeforeN" resultType="Board" parameterType="map">
+	    <![CDATA[
+ 		    SELECT *
+		    FROM (
+ 		        SELECT *
+		        FROM board
+ 		        WHERE boardId < #{boardId}
+ 		        ORDER BY boardId DESC 
+ 		    ) A
+ 		    WHERE rownum <= #{N}
+		]]>
+	</select>
+	
+</mapper>

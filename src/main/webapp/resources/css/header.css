@@ -1,0 +1,140 @@
+ @import url('https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Nanum+Gothic:wght@400;700&family=Nanum+Pen+Script&family=Ysabeau+SC:wght@200&display=swap');
+
+#container {
+  margin:0 auto;  /* 화면 중앙에 배치 */
+  width:1200px;    /* 너비 */
+}
+
+a {
+  text-decoration:none;  /* 텍스트 링크 밑줄 없애기 */ 
+  color: black;
+}
+ul {
+  list-style: none;
+}
+
+
+/*********************************/
+/* 헤더 영역 - 로고와 내비게이션 */
+/*********************************/
+
+header{
+  width:100%;    /*  너비 */
+  height:100px;   /* 높이 */ 
+  background-color: rgb(159, 156, 141);
+}
+
+/* 로고 */
+#logo{ 
+  float:left;   /* 왼쪽으로 플로팅 */ 
+  width:250px;   /*  너비 */ 
+  height:100px;   /* 높이 */
+  line-height:100px;  /* 세로로 중간에 맞춤 - 줄간격을 높이 값과 같게 */
+  padding-left:30px;  /* 왼쪽에 여백 */
+}
+#logo h1 {
+  font-family:'Ysabeau SC', cursive;
+  font-weight:700;
+  font-size:36px;   /* 글자 크기 */
+  color:#fff;   /* 글자 색*/
+  text-shadow:0 -1px 0 #222;  /* 그림자 색 */
+}
+
+/* 내비게이션 */
+nav1 {  
+  float:right;   /* 오른쪽으로 플로팅 */
+  width:900px;   /*   너비 */  
+  height:40px;   /* 메뉴 영역 높이 */  
+}
+nav2 {
+  float:right;   /* 오른쪽으로 플로팅 */
+  width:900px;   /*   너비 */  
+  height:60px;   /* 메뉴 영역 높이 */ 
+}
+
+/* 로그인 회원가입 로그아웃 마이페이지*/
+#topMenu1 #logoutBtn{
+  height:40px; 
+  padding: 10px 0px 10px 15px;
+}
+#topMenu1 #updateInfoBtn{
+  height:40px; 
+  padding: 10px 0px 10px 7px;
+}
+#topMenu1 > li {
+  float: left;
+  position: relative;
+  padding-right: 5px;
+}
+#topMenu1 #loginBtn{
+  padding: 10px 0px 10px 730px;
+}
+#topMenu1 #insertBtn{
+  padding: 10px 0px 10px 7px;
+}
+#topMenu1 #loggedInMember {
+  font-size: 14px;
+  margin-top: 2px;
+  padding: 10px 0px 10px 610px;
+}
+#topMenu1 > li> a {
+  color:#444343;
+  font-weight:400;
+  font-size:12px;
+  border: 1px solid #575656;
+  padding:5px 15px;
+}
+#topMenu1 > li > a:hover {
+  color: black;
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+/* 메뉴 */
+#topMenu2 {  
+  height:60px; 
+  /*padding-top:40px;  /* 메뉴를 아래로 내리기 위해  */
+}
+#topMenu2 > li {
+  float:left;  /* 메뉴 항목을 왼쪽으로 플로팅 */ 
+  position: relative;  /* 서브 메뉴를 absolute로 하기 위해, 이 부분을 relative로 */  
+}
+#topMenu2 > li > a{
+  display:block;  /* 링크 텍스트는 블록으로 */ 
+  color:#fff;  /* 글자 색 */
+  font-weight:600;  /* 글자 굵기 */
+  text-shadow:0 1px #444343;  /* 그림자 추가 */
+  padding:18px 50px;  /* 패딩 */ 
+}
+#topMenu2 > li > a:hover {
+  color:#000;  /* 마우스 오버하면 색상 바뀜 */ 
+  text-shadow:0 -1px #444343;  /* 글자가 너무 굵어지지 않도록 */
+}
+#topMenu2 > li > ul { /* 서브 메뉴 스타일 */
+  display: none;  /* 서브 메뉴 처음에는 화면에 안 보이게 */ 
+  position:absolute;  /* 서브 메뉴 포지셔닝 */ 
+  background:rgba(255,255,255,0.8);  /* 슬라이드 쇼 비치도록 배경 색 조절 */
+  left: 50%; /* 가운데 정렬을 위해 left 값을 50%로 설정 */
+  transform: translateX(-50%); /* 가운데 정렬을 위해 수평으로 -50%만큼 이동 */
+  top: 100%; /* 메인 메뉴 아래에 위치하도록 설정 */
+  margin: 0;
+  border-top: 2px solid black;
+  min-width: 150px;
+}
+#topMenu2 > li > ul > li {    /* 서브 메뉴 항목 */
+  text-align: center;
+  padding:10px 0px 10px 0px;   
+}
+#topMenu2 > li > ul > li > a { 
+  font-size:14px;   
+  padding:10px;
+  color:#000;  
+}
+#topMenu2 > li:hover > ul {
+  display:block;  /* 메인 메뉴 항목 위로 오버하면 서브 메뉴 표시 */
+  z-index:10;  /* 슬라이드 쇼에 가리지 않게 조절 */ 
+}
+#topMenu2 > li > ul > li > a:hover {
+  color:rgb(204, 14, 14);  /* 서브 메뉴 마우스 오버하면 색상 바뀜 */  
+  font-weight: bold; 
+} 

@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Nanum+Gothic:wght@400;700&family=Nanum+Pen+Script&family=Ysabeau+SC:wght@200&display=swap');
+
+* {
+  margin:0;   /* 留덉쭊 由ъ뀑 */
+  padding:0;   /* �뙣�뵫 由ъ뀑 */
+  box-sizing: border-box;   /* 諛뺤뒪 �쁺�뿭�� �뀒�몢由ш퉴吏� */ 
+}
+a {
+  text-decoration:none;  /* �뀓�뒪�듃 留곹겕 諛묒쨪 �뾾�븷湲� */ 
+  color: black;
+}
+ul {
+  list-style: none;
+}
+body {
+  background-color: rgb(204, 201, 187);	/* �쟾泥� �솕硫� 諛곌꼍�깋 */
+}
+#container {
+  margin:0 auto;  /* �솕硫� 以묒븰�뿉 諛곗튂 */
+  width:1200px;    /* �꼫鍮� */
+}
+
+
+/********************************/
+/*   �씠誘몄� �뒳�씪�씠�뱶 �눥 �쁺�뿭    */
+/********************************/
+
+#slideShow {   
+  clear:both;   /* �뵆濡쒗똿 �빐�젣 */
+  width:100%;    /* �꼫鍮� */ 
+  height:500px;   /* �넂�씠 */ 
+  overflow:hidden;   /* �쁺�뿭 �꽆移섎㈃ 媛먯땄 */ 
+  position: relative;
+}
+#slides {
+  position: absolute;
+}
+#slides > img {
+  width:100%;  /* �꼫鍮� */
+  /*float:left;  /* 媛�濡쒕줈 諛곗튂 */
+}
+
+#slides > button{
+  position: absolute;
+  height:100%;  /* �쐞�븘�옒 媛��뱷 李④쾶 */ 
+  top:0;
+  border:none;  /* �뀒�몢由� �뾾�씠 */  
+  padding:20px;
+  background-color: transparent;  /* �닾紐� 諛곌꼍 */ 
+  color: #fff;  /* �솕�궡�몴 �깋�� �씛�깋 */  
+  font-weight:800;  /* 援듦쾶 */ 
+  font-size: 24px;  /* �솕�궡�몴 �겕湲� */ 
+  opacity: 0.7;  /* 諛섑닾紐� */ 
+}
+#prev {
+  left:0;  /* �쇊履쎌쑝濡� 遺숈뿬�꽌 */ 
+}
+#next {
+  right:0;  /* �삤瑜몄そ�쑝濡� 遺숈뿬�꽌 */ 
+}
+#slides > button:hover {
+  background-color:#222;  /* 吏숈� �쉶�깋 諛곌꼍 */
+  color:#fff;   /* �씛�깋 �솕�궡�몴 */ 
+  opacity:0.6;   /* 遺덊닾紐낅룄瑜� 議곌툑 �넂�엫 */ 
+  cursor:pointer;  /* 而ㅼ꽌 紐⑥뼇�쓣 �룷�씤�꽣濡� */ 
+}
+#slides > button:focus {
+  outline:0;  /* �븘�썐�듃�씪�씤 �뾾�빊 */
+}
+
+
+/**************************************/
+/*   肄섑뀗痢� �쁺�뿭  - �꺆 硫붾돱�� �� 留곹겕 */
+/**************************************/
+
+#contents{  
+  width:100%;   /* �꼫鍮� */
+  height:300px;  /* �넂�씠 */   
+  margin-top:30px;  /* 留덉쭊 異붽� */
+}
+
+/* �꺆 硫붾돱 */
+#tabMenu{  
+  float:right;  /* �삤瑜몄そ�쑝濡� �뵆濡쒗똿 */ 
+  width:550px;   /* �꼫鍮� */ 
+  height:100%;   /* �넂�씠 */
+}
+#tabMenu  input[type="radio"] {
+  display:none;  /* �씪�뵒�삤 踰꾪듉 媛먯땄 */ 
+}
+#tabMenu label {  /* �꺆 �젣紐� �뒪���씪 */ 
+  display:inline-block;  /* �꺆�뱾�쓣 媛�濡쒕줈 諛곗튂 */
+  margin:0 0;  /* 留덉쭊 */ 
+  padding:15px 25px;  /* �뙣�뵫 */
+  text-align: center;   /* 湲��옄 �젙�젹 */
+  color:#575656;  /* 湲��옄 �깋 */ 
+  border:1px solid transparent;  /* �뀒�몢由� */ 
+}
+#tabMenu label:hover {  /* 留덉슦�뒪 �삤踰꾪뻽�쓣 �븣 �꺆 �젣紐� �뒪���씪 */
+  color:#222;  
+  cursor:pointer;
+}
+#tabMenu input:checked + label {  /* �솢�꽦�솕�맂 �꺆 �젣紐� �뒪���씪 */ 
+  color:black;
+  font-weight: bold;
+  border:1px solid rgb(159, 156, 141);
+  border-radius: 5px 5px 0px 0px;
+  background-color: #eee;
+}
+#tabMenu a:hover {
+  text-decoration:underline;  /* �뀓�뒪�듃 留곹겕 諛묒쨪 */ 
+}
+
+.tabContent {  /* �꺆 �궡�슜 �뒪���씪 */
+  display:none;
+  padding:20px 0 0;
+  border-top:1px solid rgb(159, 156, 141);
+}
+.tabContent h2{  
+  display:none; 
+}
+
+/* MORE 踰꾪듉 �뒪���씪 */
+button#more {
+  margin-left: 285px;
+  font-size: 35px;
+  padding: 5px;
+  background-color: rgb(204, 201, 187); /* 踰꾪듉 諛곌꼍 �깋�긽 */
+  color: black; /* 踰꾪듉 湲��옄 �깋�긽 */
+  border: none; /* 踰꾪듉 �뀒�몢由щ�� �뾾�빋�땲�떎. */
+  cursor: pointer;
+}
+
+/* 怨듭��궗�빆 �뒪���씪 */
+#notice ul {
+  list-style: circle;
+  margin-left:30px;
+}
+#notice ul li {
+  font-size:16px;
+  line-height:2.5;
+  margin-left: 30px;
+}
+#board ul {
+  list-style: circle;
+  margin-left:30px;
+}
+#board ul li {
+  font-size:16px;
+  line-height:2.5;
+  margin-left: 30px;
+}
+
+#tab1:checked ~ #notice, 
+#tab2:checked ~ #board {
+  display:block;
+}
+
+/* �� 留곹겕 */ 
+#links{  
+  float:left;   /* �쇊履쎌쑝濡� �뵆濡쒗똿 */
+  width:600px;   /* �꼫鍮� */
+  height:80%;   /* �넂�씠 */
+  margin-top: 40px;
+}
+#links ul{
+  padding:0;  /* �뙣�뵫 */ 
+  overflow: hidden;  /* �꽆移섎뒗 寃껋� 媛먯땄 */
+}
+#links ul li{
+  float:left;  /* 媛�濡쒕줈 諛곗튂 */
+  width:33%;  /* 1/3 �겕湲곕쭔�겮�뵫 */
+  text-align:center;  /* 媛��슫�뜲 �젙�젹 */
+  margin:10px 0;  /* 留덉쭊 */
+}
+
+#links ul li a span{
+  display:block;  /* 釉붾줉 �젅踰⑤줈 */ 
+  margin:0 auto;  /* 媛��슫�뜲 諛곗튂 */ 
+  width:150px;  /* 媛�濡� �겕湲� */ 
+  height:150px;  /* �꽭濡� �겕湲� */
+  border-radius:100%;  /* �뀒�몢由� �뫁湲�寃�. border-radius: 150px濡� �빐�룄 �맖 */ 
+  border:1px solid #ddd;  /* �뀒�몢由� �뒪���씪 */
+  line-height:150px;  /* �닔吏곸쑝濡� 以묎컙�뿉 �삤寃� */ 
+}
+
+#quick-icon1 {
+  background-image:url('../images/transportation.jpg'); 
+}
+#quick-icon2 {
+  background-image:url('../images/room.jpg'); 
+}
+#quick-icon3 {
+  background-image:url('../images/inquiry.jpg'); 
+}
+
+#links ul li a p {
+  margin-top:15px;  /* �쐞履� 留덉쭊 */
+  font-weight:600;  /* 湲��옄 援듦린 */
+  color:#666;  /* 湲��옄 �깋 */
+}
+

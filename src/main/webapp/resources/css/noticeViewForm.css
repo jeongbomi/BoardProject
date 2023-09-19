@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(204, 201, 187);
+}
+
+.notice_detail h1 {
+    text-align: center;
+    margin: 20px 0px 30px;
+}
+
+.notice_detail {
+	max-width: 900px;
+	min-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid gray;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.notice_detail p {
+    margin-bottom: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+.title {
+	font-weight: bold;
+	background-color: rgb(159, 156, 141, 0.7);
+}
+.content {
+	font-size: 16px;
+	background-color: rgba(240, 240, 240, 0.4)
+}
+#content {
+	text-align: left;
+	padding: 30px;
+}
+
+
+.button-container {
+	margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.update, .delete {
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.update a {
+    text-decoration: none;
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: green;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.update a:hover {
+    background-color: rgb(1, 60, 1);
+    font-weight: bold;
+} 
+
+.delete a {
+    text-decoration: none;
+    margin: 10px;
+    padding: 10px 15px;
+    background-color: rgb(175, 31, 31);
+    color: #fff;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.delete a:hover {
+    background-color: #5d0101;
+    font-weight: bold;
+} 
+
+
+.back_link {
+    display: block;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.back_link a {
+    text-decoration: none;
+    background-color: rgb(159, 156, 141, 0.7);
+    padding: 10px;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.back_link a:hover {
+    background-color: rgba(240, 240, 240, 0.4);
+}

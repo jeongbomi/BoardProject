@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.notice">
+	
+	<!-- 공지사항 Top5 -->
+	<select id="noticeTop5" resultType="Notice">
+		<![CDATA[
+			SELECT * FROM(
+   			    SELECT
+   			       * 
+   			    FROM notice a
+   			    WHERE fixed_yn = 'Y' 
+   			    ORDER BY noticeId DESC 
+   			) WHERE ROWNUM <= 3 
+   			UNION ALL 
+   			SELECT * FROM ( 
+   			    SELECT 
+   			       *  
+   			    FROM notice a 
+   			    WHERE fixed_yn = 'N' 
+   			    ORDER BY noticeId DESC 
+   			) WHERE ROWNUM <= 2
+		]]>
+	</select>
+	
+	<!-- 공지사항 리스트 -->
+	<select id="getNoticeList" resultType="Notice">
+        SELECT O.* FROM (
+            SELECT
+                ROWNUM AS nrow, b.*
+            FROM (
+                SELECT
+                    a.*
+                FROM notice a
+                <where>
+                   <if test="searchTitle != null and !searchTitle.isEmpty()">
+                   	AND title LIKE '%' || #{searchTitle} || '%'
+                   </if>
+                   </where>
+                ORDER BY noticeId desc
+            ) b
+            WHERE ROWNUM &lt;= #{endNo}
+        ) O
+        WHERE nrow BETWEEN #{startNo} AND #{endNo}
+	</select>
+	
+	<!-- 공지사항 건수  -->
+	<select id="getTotalCount" resultType="int">
+		SELECT COUNT(*) FROM notice
+	</select>
+	
+	<!-- 공지사항 글쓰기 -->
+	<insert id="insertNotice">
+		INSERT INTO notice (
+	        noticeId, 
+	        title, 
+	        contents, 
+	        writer_uid, 
+	        reg_date, 
+	        fixed_yn
+	    ) VALUES (
+	        seq_notice.nextval, 
+	        #{title}, 
+	        #{contents}, 
+	        #{writer_uid}, 
+	        sysdate, 
+	        #{fixed_yn}
+	    )
+	</insert>
+	
+	<!-- 공지사항 상세보기 -->
+	<select id="getNoticeDetail" resultType="Notice">
+		SELECT
+			noticeId,
+			title,
+			contents,
+			writer_uid,
+			reg_date,
+			mod_date,
+			view_count,
+			fixed_yn
+		FROM notice
+		WHERE noticeId = #{noticeId}
+	</select>
+	
+	<!-- 공지사항 조회수올리기 -->
+	<update id="viewCount">
+		UPDATE notice
+		SET view_count = view_count + 1 
+		WHERE noticeId = #{noticeId}
+	</update>
+	
+	<!-- 공지사항 수정 -->
+	<update id="updateNotice">
+		UPDATE notice 
+		SET title = #{title}, 
+			contents = #{contents}, 
+			mod_date = sysdate, 
+			fixed_yn = #{fixed_yn} 
+		WHERE noticeId = #{noticeId}
+	</update>
+
+	<!-- 공지사항 삭제 -->
+	<delete id="deleteNotice">
+		DELETE
+		FROM notice
+		WHERE noticeId = #{noticeId}
+	</delete>
+	
+	<!-- 공지사항 체크선택 삭제 -->
+	<delete id="deleteNotices" parameterType="list">
+	    DELETE FROM notice
+	    WHERE noticeId IN
+	    <foreach item="ids" collection="array" open="(" separator="," close=")">
+	        #{ids}
+	    </foreach>
+	</delete>
+	
+	<!-- 공지사항 체크선택 삭제 후 리스트 불러오기 -->
+	<select id="getNoticeListBeforeN" resultType="Notice" parameterType="map">
+	    <![CDATA[
+ 		    SELECT *
+		    FROM (
+ 		        SELECT *
+		        FROM notice
+ 		        WHERE noticeId < #{noticeId}
+ 		        ORDER BY noticeId DESC 
+ 		    ) A
+ 		    WHERE rownum <= #{N}
+		]]>
+	</select>
+</mapper>

@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(204, 201, 187);
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.container h1 {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.memberList {
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.title_row {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    background-color: rgba(240, 240, 240, 0.4);
+    border-top: 1px solid black;
+    padding: 10px;
+}
+
+.title_row li {
+    flex: 1;
+    font-weight: 550;
+    text-align: center;
+}
+
+.board_row {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+	background-color: rgb(204, 201, 187);
+	border-bottom: 1px solid rgb(162, 162, 161);
+}
+
+.board_row:last-child {
+	border-bottom: 1px solid black;
+}
+
+.board_row:hover {
+    background-color: rgb(187, 184, 171);
+}
+
+.board_row li {
+    flex: 1;
+    text-align: center;
+	color: #404040;
+}
+
+.write-container {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.mypage a{
+	color: white;
+}
+
+.mypage {
+	margin: 3px;
+    padding: 5px 10px;
+    font-size: 15px;
+    background-color: #880000;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.mypage:hover {
+    font-weight: bold;
+    background-color: #5d0101;
+}

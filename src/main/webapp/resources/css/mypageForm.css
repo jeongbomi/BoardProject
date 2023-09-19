@@ -1,0 +1,212 @@
+* {
+  margin:0;   /* 마진 리셋 */
+  padding:0;   /* 패딩 리셋 */
+  box-sizing: border-box;   /* 박스 영역은 테두리까지 */ 
+}
+
+body {
+  background-color: rgb(204, 201, 187);	/* 전체 화면 배경색 */
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+#mypageForm {
+  width: 400px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#mypageForm h1 {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#mypageForm #icon {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#mypageForm #icon ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+#mypageForm #icon ul li {
+  margin-right: 10px;
+}
+
+#mypageForm #button_find {
+  text-align: center;
+}
+
+#mypageForm #button_find ul {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 10px;
+}
+
+#mypageForm #button_find ul li {
+  margin: 5px 10px;
+}
+#mypageForm #button_find ul li a {
+  display: block;
+  background-color: whitesmoke;
+  color: rgb(60, 60, 55);
+  padding: 6px 5px;
+  border: 1px solid rgb(196, 194, 185);
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+#mypageForm #button_find ul li a:hover {
+  background-color: rgb(196, 194, 185);
+  color: #fff;
+  border-color: rgb(196, 194, 185);
+}
+
+#mypageForm #button_find ul li.deleteMember {
+  margin-top: 10px;
+}
+
+#mypageForm #button_find ul li.deleteMember a {
+  background-color: rgb(228, 63, 68);
+  color: #fff;
+  border-color: rgb(196, 194, 185);
+}
+
+#mypageForm #button_find ul li.deleteMember a:hover {
+  background-color: rgb(196, 194, 185);
+  color: rgb(228, 63, 68);
+  font-weight: bold;
+  border-color: rgb(196, 194, 185);
+}
+
+
+/* 회원정보 상세보기  내용 스타일 */
+.info-box {
+  border: 1px solid #ccc;
+  background-color: #f2f2f2;
+  padding: 4px;
+  margin: 50px 15px;
+}
+
+.info-box p {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.info-box p b {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.info-details {
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.info-details th {
+  background-color: #f2f2f2;
+  text-align: left;
+  padding: 8px;
+}
+
+.info-details td {
+  text-align: center;
+  padding: 8px;
+}
+
+.info-details tr.info {
+  background-color: #f2f2f2;
+  border-bottom: 1px solid black;
+}
+
+
+/* 회원정보 수정 내용 스타일 */
+#memberUpdateForm p {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+#memberUpdateForm form {
+  text-align: left;
+  padding: 10px;
+}
+
+#memberUpdateForm form div.newName, .newPassword, .newPasswordCheck, .newPhone {
+  height: 70px;
+  font-size: 15px;
+}
+
+#memberUpdateForm form label {
+  display: block;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+#memberUpdateForm form input {
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+}
+
+#memberUpdateForm form .button-container {
+  text-align: center;
+  margin-top: 15px;
+}
+
+#memberUpdateForm form .save-button,
+#memberUpdateForm form .cancel-button {
+  margin: 0 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#memberUpdateForm form .save-button {
+  background-color: #4CAF50;
+  color: #fff;
+}
+
+#memberUpdateForm form .cancel-button {
+  background-color: #ccc;
+  color: #333;
+}
+
+.error-message {
+    height:20px;
+    color: red;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+
+/* 회원 탈퇴 팝업창 내용 스타일 */
+.popup-content .button-container .yes-button {
+  background-color: rgb(228, 63, 68);
+  color: #fff;
+}
+
+.popup-content .button-container .no-button {
+  background-color: #ccc;
+  color: #333;
+}
